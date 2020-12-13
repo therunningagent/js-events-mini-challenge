@@ -1,5 +1,3 @@
-# events-js-mini-challenge
-
 # JS Mini Challenge: Event Handling
 
 *This Lab Lovingly Stolen From [Ian Hollander](https://github.com/ihollander)*
