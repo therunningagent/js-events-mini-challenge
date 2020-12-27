@@ -1,10 +1,23 @@
 /***** Deliverable 1 *****/
 const header = document.querySelector("#header")
+header.addEventListener("click", function(evt){
+    toggleColor(evt.target)
+})
 console.log("Here's your header:", header)
 
 
 /***** Deliverable 2 *****/
 header.style.color = "green"
+
+let pLikes = document.querySelector("p.likes")
+const likeButton = document.querySelector("button.like-button")
+
+likeButton.addEventListener("click", function(event){
+    let likeNum = parseInt(pLikes.textContent)
+    likeNum ++
+    console.log(likeNum)
+    pLikes.textContent = `${likeNum} likes`
+})
 
 
 /***** Deliverable 3 *****/
@@ -22,6 +35,32 @@ profileEm.textContent = traveler.nickname
 
 const likes = document.querySelector("#profile .likes")
 likes.textContent = `${traveler.likes} Likes`
+
+const form = document.querySelector("form#new-animal-sighting-form")
+
+form.addEventListener("submit", function(event){
+    event.preventDefault()
+    const speciesInput = event.target.species.value
+    const linkInput = event.target.link.value
+    const photoInput = event.target.photo.value
+    const descriptionInput = event.target.description.value
+
+    const lastIndex = traveler.animalSightings.length - 1 
+    const id = traveler.animalSightings[lastIndex].id += 1 
+
+    console.log(id)
+
+    const animalObject = {
+        id: id,
+        species: speciesInput,
+        link: linkInput,
+        photo: photoInput,
+        description: descriptionInput
+    }
+    renderAnimalSightingPost(animalObject)
+    event.target.reset()
+})
+
 
 
 /***** Deliverable 4 *****/
